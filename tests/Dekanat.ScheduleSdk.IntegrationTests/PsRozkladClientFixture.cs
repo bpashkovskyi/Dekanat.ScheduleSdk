@@ -18,7 +18,7 @@ public sealed class PsRozkladClientFixture : IDisposable
 
         Client = new PsRozkladClient(httpClient, new PsRozkladClientOptions
         {
-            Encoding = Enums.TextEncodingMode.Utf8,
+            Encoding = TextEncodingMode.Utf8,
             ThrowOnApiError = true,
         });
     }

@@ -4,5 +4,6 @@
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Dekanat.ScheduleSdk.IntegrationTests/Dekanat.ScheduleSdk.IntegrationTests.csproj" />
+    <Project Path="tests/Dekanat.ScheduleSdk.Tests/Dekanat.ScheduleSdk.Tests.csproj" />
   </Folder>
 </Solution>

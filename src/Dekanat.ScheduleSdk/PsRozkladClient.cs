@@ -20,7 +20,7 @@ public sealed class PsRozkladClient : IPsRozkladClient
     static PsRozkladClient()
     {
         // Потрібно для TextEncodingMode.Windows1251 у .NET Core / .NET 5+.
-        Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
     }
 
     private readonly HttpClient _httpClient;

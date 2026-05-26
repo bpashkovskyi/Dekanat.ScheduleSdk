@@ -112,22 +112,25 @@ builder.Services.AddPsRozkladClient(options =>
 ## Тести
 
 ```bash
-# Усі тести (потрібен доступ до dekanat.nung.edu.ua)
-dotnet test
+dotnet test                              # 76 тестів (52 unit + 24 integration)
+dotnet test --filter Category=Unit       # без мережі
+dotnet test --filter Category=Integration
 
-# Пропустити мережеві інтеграційні тести
-set SKIP_PSROZKLAD_INTEGRATION_TESTS=1
+set SKIP_PSROZKLAD_INTEGRATION_TESTS=1   # інтеграція одразу виходить
 dotnet test
 ```
 
-- `JsonDeserializationTests` — без мережі, на фікстурах JSON
-- `PsRozkladApiIntegrationTests` — живий API, `[Trait("Category", "Integration")]`
+| Проєкт | Покриття |
+|--------|----------|
+| `Dekanat.ScheduleSdk.Tests` | JSON-моделі, валідація, query (mock HTTP), `ApiQueryBuilder` |
+| `Dekanat.ScheduleSdk.IntegrationTests` | `obj_list`, `rozklad`, `free_rooms_list`, `room_type_list`, `SendAsync` |
 
 ## Структура репозиторію
 
 ```
-src/Dekanat.ScheduleSdk/          # Бібліотека
-tests/...IntegrationTests/     # xUnit + інтеграція
+src/Dekanat.ScheduleSdk/
+tests/Dekanat.ScheduleSdk.Tests/
+tests/Dekanat.ScheduleSdk.IntegrationTests/
 ```
 
 ## Ліцензія

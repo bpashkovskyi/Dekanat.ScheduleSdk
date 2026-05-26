@@ -1,8 +1,0 @@
-<Solution>
-  <Folder Name="/src/">
-    <Project Path="src/Nung.ScheduleSdk/Nung.ScheduleSdk.csproj" />
-  </Folder>
-  <Folder Name="/tests/">
-    <Project Path="tests/Nung.ScheduleSdk.IntegrationTests/Nung.ScheduleSdk.IntegrationTests.csproj" />
-  </Folder>
-</Solution>
