@@ -1,4 +1,4 @@
-# Nung.ScheduleSdk
+# Dekanat.ScheduleSdk
 
 .NET 10 SDK для роботи з JSON API експорту розкладу **ПС-Розклад** Національного університету нафти і газу.
 
@@ -15,13 +15,13 @@
 ## Встановлення
 
 ```bash
-dotnet add package Nung.ScheduleSdk
+dotnet add package Dekanat.ScheduleSdk
 ```
 
 Або додайте посилання на проєкт у monorepo:
 
 ```xml
-<ProjectReference Include="..\src\Nung.ScheduleSdk\Nung.ScheduleSdk.csproj" />
+<ProjectReference Include="..\src\Dekanat.ScheduleSdk\Dekanat.ScheduleSdk.csproj" />
 ```
 
 ## Швидкий старт
@@ -29,9 +29,9 @@ dotnet add package Nung.ScheduleSdk
 ### Без DI
 
 ```csharp
-using Nung.ScheduleSdk;
-using Nung.ScheduleSdk.Enums;
-using Nung.ScheduleSdk.Requests;
+using Dekanat.ScheduleSdk;
+using Dekanat.ScheduleSdk.Enums;
+using Dekanat.ScheduleSdk.Requests;
 
 HttpClient httpClient = new() { BaseAddress = new Uri(PsRozkladClientOptions.DefaultBaseUrl) };
 IPsRozkladClient client = new PsRozkladClient(httpClient);
@@ -126,7 +126,7 @@ dotnet test
 ## Структура репозиторію
 
 ```
-src/Nung.ScheduleSdk/          # Бібліотека
+src/Dekanat.ScheduleSdk/          # Бібліотека
 tests/...IntegrationTests/     # xUnit + інтеграція
 ```
 
