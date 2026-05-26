@@ -23,7 +23,7 @@ internal static class PsRozkladClientTestFactory
         };
 
         PsRozkladClientOptions clientOptions = options ?? new PsRozkladClientOptions();
-        PsRozkladClient client = new(httpClient, clientOptions);
+        PsRozkladClient client = PsRozkladClient.Create(httpClient, clientOptions);
         return (client, handler);
     }
 }

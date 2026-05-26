@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text;
 using System.Text.Json;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Dekanat.ScheduleSdk.Enums;
 using Dekanat.ScheduleSdk.Exceptions;
@@ -28,10 +29,9 @@ public sealed class PsRozkladClient : IPsRozkladClient
     private readonly JsonSerializerOptions _jsonOptions;
 
     /// <summary>
-    /// Створює клієнт з налаштованим <see cref="HttpClient"/> (використовуйте DI або <see cref="DependencyInjection.ServiceCollectionExtensions.AddPsRozkladClient"/>.
+    /// Конструктор для DI (<see cref="DependencyInjection.ServiceCollectionExtensions.AddPsRozkladClient"/>).
     /// </summary>
-    /// <param name="httpClient">HTTP-клієнт з базовою адресою та таймаутом.</param>
-    /// <param name="options">Опції SDK.</param>
+    [ActivatorUtilitiesConstructor]
     public PsRozkladClient(HttpClient httpClient, IOptions<PsRozkladClientOptions> options)
         : this(httpClient, options.Value)
     {
@@ -40,10 +40,13 @@ public sealed class PsRozkladClient : IPsRozkladClient
     /// <summary>
     /// Створює клієнт без контейнера DI.
     /// </summary>
-    public PsRozkladClient(HttpClient httpClient, PsRozkladClientOptions? options = null)
+    public static PsRozkladClient Create(HttpClient httpClient, PsRozkladClientOptions? options = null) =>
+        new(httpClient, options ?? new PsRozkladClientOptions());
+
+    private PsRozkladClient(HttpClient httpClient, PsRozkladClientOptions options)
     {
         _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-        _options = options ?? new PsRozkladClientOptions();
+        _options = options;
         _jsonOptions = PsRozkladJsonSerializerOptions.Default;
 
         if (_httpClient.BaseAddress is null)

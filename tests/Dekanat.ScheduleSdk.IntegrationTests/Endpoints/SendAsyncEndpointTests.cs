@@ -26,7 +26,7 @@ public sealed class SendAsyncEndpointTests
             Timeout = TimeSpan.FromSeconds(90),
         };
 
-        PsRozkladClient client = new(httpClient, new PsRozkladClientOptions());
+        PsRozkladClient client = PsRozkladClient.Create(httpClient, new PsRozkladClientOptions());
 
         PsRozkladResponse response = await client.SendAsync(new Dictionary<string, string>
         {
@@ -54,7 +54,7 @@ public sealed class SendAsyncEndpointTests
             Timeout = TimeSpan.FromSeconds(90),
         };
 
-        PsRozkladClient client = new(httpClient, new PsRozkladClientOptions
+        PsRozkladClient client = PsRozkladClient.Create(httpClient, new PsRozkladClientOptions
         {
             ThrowOnApiError = false,
         });
@@ -86,7 +86,7 @@ public sealed class SendAsyncEndpointTests
             Timeout = TimeSpan.FromSeconds(90),
         };
 
-        PsRozkladClient client = new(httpClient, new PsRozkladClientOptions
+        PsRozkladClient client = PsRozkladClient.Create(httpClient, new PsRozkladClientOptions
         {
             Encoding = TextEncodingMode.Windows1251,
         });

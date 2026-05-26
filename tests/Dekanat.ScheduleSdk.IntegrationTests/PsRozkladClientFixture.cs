@@ -16,7 +16,7 @@ public sealed class PsRozkladClientFixture : IDisposable
             Timeout = TimeSpan.FromSeconds(90),
         };
 
-        Client = new PsRozkladClient(httpClient, new PsRozkladClientOptions
+        Client = PsRozkladClient.Create(httpClient, new PsRozkladClientOptions
         {
             Encoding = TextEncodingMode.Utf8,
             ThrowOnApiError = true,

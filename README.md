@@ -34,7 +34,7 @@ using Dekanat.ScheduleSdk.Enums;
 using Dekanat.ScheduleSdk.Requests;
 
 HttpClient httpClient = new() { BaseAddress = new Uri(PsRozkladClientOptions.DefaultBaseUrl) };
-IPsRozkladClient client = new PsRozkladClient(httpClient);
+IPsRozkladClient client = PsRozkladClient.Create(httpClient);
 
 // Перелік груп з ID
 PsRozkladExport groups = await client.GetObjectListAsync(new ObjectListRequest
