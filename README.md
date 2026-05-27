@@ -135,4 +135,4 @@ tests/Dekanat.ScheduleSdk.IntegrationTests/
 
 ## Ліцензія
 
-Уточніть ліцензію для вашої організації.
+MIT license
